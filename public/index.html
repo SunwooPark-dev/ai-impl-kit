@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인생 AB 테스트</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Life AB Test</p>
+        <h1>어떤 선택이 지금의 나에게 더 맞는지 시뮬레이션해보세요.</h1>
+        <p>정답을 단정하지 않고, 동일 baseline 위에서 A/B의 미래 경로를 비교합니다.</p>
+      </header>
+
+      <section class="panel">
+        <h2>새 시뮬레이션</h2>
+        <form id="simulator-form" class="form-grid">
+          <label>결정 제목<input name="decision_title" value="이직 vs 현재 회사 잔류" required /></label>
+          <label>결정 질문<input name="decision_question" value="지금 이직하는 것이 더 나은가, 현재 회사에 남는 것이 더 나은가?" required /></label>
+          <label>옵션 A 이름<input name="option_a_label" value="이직한다" required /></label>
+          <label>옵션 A 설명<textarea name="option_a_description">새로운 환경으로 옮겨 더 높은 성장 기회를 노린다.</textarea></label>
+          <label>옵션 B 이름<input name="option_b_label" value="남는다" required /></label>
+          <label>옵션 B 설명<textarea name="option_b_description">현재 조직에 남아 안정성과 관계 자산을 유지한다.</textarea></label>
+          <label>도메인
+            <select name="scenario_domain">
+              <option value="career">career</option>
+              <option value="business">business</option>
+              <option value="relationship">relationship</option>
+              <option value="education">education</option>
+              <option value="lifestyle">lifestyle</option>
+              <option value="creative">creative</option>
+              <option value="health_routine">health_routine</option>
+              <option value="relocation">relocation</option>
+              <option value="custom">custom</option>
+            </select>
+          </label>
+          <label>시간 범위
+            <select name="time_horizon">
+              <option value="3_months">3개월</option>
+              <option value="6_months">6개월</option>
+              <option value="1_year" selected>1년</option>
+              <option value="3_years">3년</option>
+              <option value="5_years">5년</option>
+            </select>
+          </label>
+          <label>시뮬레이션 모드
+            <select name="simulation_mode">
+              <option value="quick">quick</option>
+              <option value="standard" selected>standard</option>
+              <option value="deep">deep</option>
+            </select>
+          </label>
+          <label>커리어 단계<input name="career_stage" value="탐색기" /></label>
+          <label>재무 리스크 성향
+            <select name="financial_risk_tolerance">
+              <option value="low">low</option>
+              <option value="medium" selected>medium</option>
+              <option value="high">high</option>
+            </select>
+          </label>
+          <label class="full-width">우선순위 (쉼표 구분)<input name="priorities" value="안정,성장,자율성" /></label>
+          <label class="full-width">must_consider (쉼표 구분)<input name="must_consider" value="재정 안정,성장 속도" /></label>
+          <label class="full-width">must_avoid (쉼표 구분)<input name="must_avoid" value="확정적 예언 문구" /></label>
+          <div class="actions full-width">
+            <button type="submit">시뮬레이션 실행</button>
+            <button type="button" id="download-json">JSON 다운로드</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>최근 실행</h2>
+        <ul id="history-root"></ul>
+      </section>
+
+      <section class="panel" id="result-root">
+        <h2>결과가 여기에 표시됩니다</h2>
+        <p class="muted">실행 후 Topline verdict, 비교표, 분기 타임라인, 리스크/후회 카드, JSON appendix를 확인할 수 있습니다.</p>
+      </section>
+    </main>
+    <script type="module" src="/src/ui/app.js"></script>
+  </body>
+</html>

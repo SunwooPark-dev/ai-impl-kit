@@ -1,0 +1,1668 @@
+{
+  "simulation_manifest": {
+    "decision_title": "이직 vs 현재 회사 잔류",
+    "baseline_assumptions": [
+      "user_profile이 없어 기본 프로필을 적용했다."
+    ],
+    "time_horizon": "1_year",
+    "mode": "standard",
+    "branches_per_option": 3,
+    "turns": 12
+  },
+  "dimension_scorecard": [
+    {
+      "option": "A",
+      "branch": "optimistic",
+      "scores": {
+        "emotion": 55,
+        "finance": 100,
+        "growth": 100,
+        "relationships": 55,
+        "health": 55,
+        "autonomy": 100,
+        "regret": 43,
+        "risk": 29
+      },
+      "overall_score": 77,
+      "confidence": "medium"
+    },
+    {
+      "option": "A",
+      "branch": "base",
+      "scores": {
+        "emotion": 55,
+        "finance": 96,
+        "growth": 93,
+        "relationships": 55,
+        "health": 55,
+        "autonomy": 80,
+        "regret": 43,
+        "risk": 29
+      },
+      "overall_score": 72,
+      "confidence": "medium"
+    },
+    {
+      "option": "A",
+      "branch": "pessimistic",
+      "scores": {
+        "emotion": 55,
+        "finance": 32,
+        "growth": 0,
+        "relationships": 55,
+        "health": 55,
+        "autonomy": 16,
+        "regret": 43,
+        "risk": 89
+      },
+      "overall_score": 33,
+      "confidence": "low"
+    },
+    {
+      "option": "B",
+      "branch": "optimistic",
+      "scores": {
+        "emotion": 100,
+        "finance": 100,
+        "growth": 65,
+        "relationships": 100,
+        "health": 55,
+        "autonomy": 64,
+        "regret": 43,
+        "risk": 41
+      },
+      "overall_score": 76,
+      "confidence": "medium"
+    },
+    {
+      "option": "B",
+      "branch": "base",
+      "scores": {
+        "emotion": 43,
+        "finance": 40,
+        "growth": 73,
+        "relationships": 100,
+        "health": 55,
+        "autonomy": 68,
+        "regret": 43,
+        "risk": 41
+      },
+      "overall_score": 61,
+      "confidence": "low"
+    },
+    {
+      "option": "B",
+      "branch": "pessimistic",
+      "scores": {
+        "emotion": 25,
+        "finance": 6,
+        "growth": 61,
+        "relationships": 27,
+        "health": 55,
+        "autonomy": 64,
+        "regret": 43,
+        "risk": 41
+      },
+      "overall_score": 43,
+      "confidence": "low"
+    }
+  ],
+  "scenario_graph_summary": [
+    {
+      "option": "A",
+      "branch": "optimistic",
+      "nodes": [
+        {
+          "turn": 1,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        }
+      ]
+    },
+    {
+      "option": "A",
+      "branch": "base",
+      "nodes": [
+        {
+          "turn": 1,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 호재를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        }
+      ]
+    },
+    {
+      "option": "A",
+      "branch": "pessimistic",
+      "nodes": [
+        {
+          "turn": 1,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 부담를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 부담를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 finance에 부담를 만들었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "strategy",
+          "summary": "이직한다 선택이 growth, autonomy에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "growth",
+            "autonomy"
+          ]
+        }
+      ]
+    },
+    {
+      "option": "B",
+      "branch": "optimistic",
+      "nodes": [
+        {
+          "turn": 1,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        }
+      ]
+    },
+    {
+      "option": "B",
+      "branch": "base",
+      "nodes": [
+        {
+          "turn": 1,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 호재를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        }
+      ]
+    },
+    {
+      "option": "B",
+      "branch": "pessimistic",
+      "nodes": [
+        {
+          "turn": 1,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 1,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 2,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 3,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 4,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 부담를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 5,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 6,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 부담를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 7,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 8,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 부담를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 9,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 growth에 영향을 주었다.",
+          "affected_dimensions": [
+            "growth"
+          ]
+        },
+        {
+          "turn": 10,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 finance에 영향을 주었다.",
+          "affected_dimensions": [
+            "finance"
+          ]
+        },
+        {
+          "turn": 11,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "environment",
+          "summary": "공통 환경 변화가 autonomy에 영향을 주었다.",
+          "affected_dimensions": [
+            "autonomy"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "strategy",
+          "summary": "현재 회사에 남는다 선택이 finance, emotion에 직접적인 변화를 만들었다. 특히 재정 안정, 성장 속도 축에서 체감 차이가 커진다.",
+          "affected_dimensions": [
+            "finance",
+            "emotion"
+          ]
+        },
+        {
+          "turn": 12,
+          "event_type": "chance",
+          "summary": "예상 밖의 사건이 relationships에 부담를 만들었다.",
+          "affected_dimensions": [
+            "relationships"
+          ]
+        }
+      ]
+    }
+  ],
+  "mvp_backlog": [
+    {
+      "id": "P0-1",
+      "priority": "P0",
+      "title": "A/B 입력 폼과 기본값 주입",
+      "owner_hint": "Frontend",
+      "definition_of_done": "필수 입력만으로 실행 가능"
+    },
+    {
+      "id": "P0-2",
+      "priority": "P0",
+      "title": "Baseline fairness 엔진",
+      "owner_hint": "AI",
+      "definition_of_done": "A/B 공통 baseline과 공통 노이즈 보장"
+    },
+    {
+      "id": "P0-3",
+      "priority": "P0",
+      "title": "3-branch 시뮬레이션 생성",
+      "owner_hint": "AI",
+      "definition_of_done": "옵션별 optimistic/base/pessimistic 생성"
+    },
+    {
+      "id": "P0-4",
+      "priority": "P0",
+      "title": "점수/리스크/후회 계산기",
+      "owner_hint": "AI",
+      "definition_of_done": "차원별 점수와 overall score 산출"
+    },
+    {
+      "id": "P0-5",
+      "priority": "P0",
+      "title": "결과 비교 화면",
+      "owner_hint": "Frontend",
+      "definition_of_done": "topline verdict와 표/타임라인 렌더링"
+    },
+    {
+      "id": "P0-6",
+      "priority": "P1",
+      "title": "로컬 저장 및 재실행",
+      "owner_hint": "Frontend",
+      "definition_of_done": "최근 실행 결과 로컬 저장"
+    },
+    {
+      "id": "P0-7",
+      "priority": "P1",
+      "title": "JSON appendix 다운로드",
+      "owner_hint": "Frontend",
+      "definition_of_done": "manifest/scorecard/graph/backlog export 가능"
+    },
+    {
+      "id": "P0-8",
+      "priority": "P1",
+      "title": "민감 도메인 가드레일 적용",
+      "owner_hint": "AI",
+      "definition_of_done": "제한 문구와 비결정성 고지 포함"
+    },
+    {
+      "id": "P0-9",
+      "priority": "P1",
+      "title": "자동 테스트 불변식",
+      "owner_hint": "Backend",
+      "definition_of_done": "정규화, 공정성, 점수 범위 테스트 통과"
+    },
+    {
+      "id": "P0-10",
+      "priority": "P2",
+      "title": "PDF-ready export 가이드",
+      "owner_hint": "PM",
+      "definition_of_done": "머지 문서 순서와 포맷 가이드 제공"
+    }
+  ]
+}

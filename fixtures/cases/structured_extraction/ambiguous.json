@@ -1,0 +1,4 @@
+{
+  "text": "The patient was prescribed some meds.",
+  "schema_description": "Extract patient_name, medication, dose, and frequency."
+}

@@ -1,0 +1,15 @@
+{
+  "name": "ai-impl-kit-starter",
+  "version": "1.0.0",
+  "description": "Starter example for AI Impl Kit",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

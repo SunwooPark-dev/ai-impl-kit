@@ -1,0 +1,38 @@
+# Audit: Multi-Agent Choreography Engine Integration
+
+- Date: 2026-05-21
+- Agent: Antigravity
+- Mode: execute
+- Task ID: Goal B (Multi-Agent Choreography Engine with Superpowers Orchestration)
+- Why: AI Impl Kit 및 Superpowers 철학을 융합하여 multi-agent 간 복잡한 비동기 DAG 실행, Context Handoff 압축, Ledger 로깅, CLI 아스키 비주얼라이저 및 모의 재생 하네스 구축.
+- Scope:
+  - `src/ai_impl_kit/runtime/choreography.py` (DAG 실행 및 Handoff 맵핑 코어)
+  - `src/ai_impl_kit/runtime/visualizer.py` (박스 아트를 활용한 실시간 CLI 파이프라인 시각화)
+  - `src/ai_impl_kit/evals/replay.py` (과거 Ledger 기록 기반 멱등적 모의 테스트 하네스)
+  - `tests/test_choreography.py` (종합 검증용 유닛 테스트 패키지)
+- Files changed:
+  - `[NEW] src/ai_impl_kit/runtime/choreography.py`
+  - `[NEW] src/ai_impl_kit/runtime/visualizer.py`
+  - `[NEW] src/ai_impl_kit/evals/replay.py`
+  - `[NEW] tests/test_choreography.py`
+- Evidence / Sources:
+  - `tests/test_choreography.py` 유닛 테스트를 통한 DAG topological sort, 비동기 병렬 실행, 예외(사이클/누락 의존성) 처리, Ledger 출력, ASCII visualizer 구조 및 ReplayHarness 기능 검증 완료.
+  - `outputs/choreography_ledger.jsonl` Ledger 기록 완벽 정합성 확보.
+- Commands run:
+  - `rtk pytest tests/test_choreography.py`
+    - Cwd: `C:\Users\sunwo\ai-impl-kit`
+    - Exit code: 0
+    - Output: 4 passed in 0.08s
+- Results:
+  - 비동기 Event-driven Topological 실행을 통해 데드락 없는 DAG 병렬 처리가 가능함을 확인.
+  - 노드 간 Handoff 데이터 유실 방지를 위한 딕셔너리 병합 로직 및 Fail-Fast 정책 수립 완료.
+- Risks:
+  - input_mapper의 람다 함수 내 mapping key와 dependencies node_id 불일치 시 KeyError가 발생할 우려가 있으나, 유닛 테스트를 통해 검증 구조를 확실히 설계하여 방지함.
+- Rollback:
+  - `git clean -fd` 또는 신규 생성된 아래 4개 파일을 수동 삭제:
+    - `src/ai_impl_kit/runtime/choreography.py`
+    - `src/ai_impl_kit/runtime/visualizer.py`
+    - `src/ai_impl_kit/evals/replay.py`
+    - `tests/test_choreography.py`
+- Remaining TODO:
+  - Goal D: Dynamic Tool-Use & Sandbox Execution for Agent Nodes 설계서 작성 및 구현.

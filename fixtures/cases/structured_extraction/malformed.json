@@ -1,0 +1,4 @@
+{
+  "text": "---BEGIN MEDICAL RECORD--- \n PATIENT_ID: 1234 \n NO MEDICATIONS PRESCRIBED \n ---END---",
+  "schema_description": "Extract patient_name, medication, dose, and frequency."
+}

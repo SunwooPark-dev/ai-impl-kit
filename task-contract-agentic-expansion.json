@@ -1,0 +1,47 @@
+{
+  "task_id": "EXPANSION_001",
+  "project": "ai-impl-kit",
+  "objective": "Implement Gemini adapter, Streaming support, and Eval Dashboard via parallel multi-agent lanes.",
+  "lanes": [
+    {
+      "lane_id": "LANE_A",
+      "lead": "lead-implementation",
+      "objective": "Implement Gemini Adapter in ai_impl_kit/adapters",
+      "files_to_modify": [
+        "src/ai_impl_kit/config.py",
+        "src/ai_impl_kit/adapters/gemini_adapter.py",
+        "src/ai_impl_kit/adapters/factory.py",
+        "pyproject.toml",
+        "scripts/run_eval.py",
+        "scripts/serve.py",
+        "tests/test_gemini_adapter.py"
+      ]
+    },
+    {
+      "lane_id": "LANE_B",
+      "lead": "lead-code-analysis",
+      "objective": "Implement Streaming support across adapters and pipeline",
+      "files_to_modify": [
+        "src/ai_impl_kit/adapters/base.py",
+        "src/ai_impl_kit/adapters/openai_adapter.py",
+        "src/ai_impl_kit/runtime/pipeline.py",
+        "scripts/serve.py",
+        "tests/test_streaming.py"
+      ]
+    },
+    {
+      "lane_id": "LANE_C",
+      "lead": "lead-review",
+      "objective": "Implement static Eval Dashboard script",
+      "files_to_modify": [
+        "scripts/eval_dashboard.py",
+        "public/dashboard.html"
+      ]
+    }
+  ],
+  "definition_of_done": [
+    "pytest passes for all new tests.",
+    "eval_dashboard.py generates valid public/dashboard.html.",
+    "BRIDGE.md updated with completion report."
+  ]
+}

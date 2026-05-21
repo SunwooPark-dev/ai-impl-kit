@@ -1,0 +1,62 @@
+﻿{
+  "snapshot_date": "2026-04-13",
+  "purpose": "Build a reusable category-level bestseller archive for Korea, Japan, and Spanish-language markets to inform an English-language book project.",
+  "markets": {
+    "korea": {
+      "confidence": "medium",
+      "categories": {
+        "literary_general_fiction": ["Project Hail Mary", "괴테는 모든 것을 말했다", "Han Kang backlist"],
+        "ideas_humanities_social_issues": ["사랑이 있으니 살아집디다"],
+        "business_money_productivity_self_help": ["완벽한 원시인", "돈의 방정식", "stock/investing titles"],
+        "children_youth_family": ["흔한남매 21"],
+        "pop_culture_media_tieins_franchise_comics": ["왕과 사는 남자 각본집", "baseball guidebooks", "흔한남매 franchise"]
+      },
+      "patterns": [
+        "Prestige fiction and practical self-improvement both perform strongly.",
+        "Media tie-ins and fandom convert rapidly into book sales.",
+        "Money and productivity titles remain durable under uncertainty."
+      ]
+    },
+    "japan": {
+      "confidence": "high",
+      "categories": {
+        "literary_general_fiction": ["イン・ザ・メガチャーチ"],
+        "ideas_humanities_social_issues": ["literary-adjacent serious nonfiction ecosystem"],
+        "business_money_productivity_self_help": ["科学的に証明された すごい習慣大百科"],
+        "children_youth_family": ["みこぴーと おおきな さくらのき 限定版"],
+        "pop_culture_media_tieins_franchise_comics": ["Oricon weekly comics chart titles", "令和八年大相撲力士名鑑"]
+      },
+      "patterns": [
+        "Bookstore curation and prize culture strongly shape literary demand.",
+        "Science-backed habits and systemized self-improvement sell well.",
+        "Collectibility and format object-value matter." 
+      ]
+    },
+    "spanish_language_market": {
+      "confidence": "high",
+      "categories": {
+        "literary_general_fiction": ["COMERÁS FLORES", "MENTIRA", "LA PENÍNSULA DE LAS CASAS VACÍAS"],
+        "ideas_humanities_social_issues": ["INTELIGENCIA NATURAL", "LA SOCIEDAD DEL CANSANCIO"],
+        "business_money_productivity_self_help": ["EL HOMBRE EN BUSCA DE SENTIDO", "HÁBITOS ATÓMICOS", "PAPÁ, ¿ME CUENTAS TU HISTORIA?"],
+        "children_youth_family": ["BRIMSTONE", "LAZARILLO DE TORMES", "DON QUIJOTE DE LA MANCHA"],
+        "pop_culture_media_tieins_franchise_comics": ["SOLO LEVELING 12"]
+      },
+      "patterns": [
+        "Emotional literary fiction and thrillers coexist successfully.",
+        "Philosophical-social nonfiction is commercially meaningful.",
+        "Self-help wins when it is humane and identity-relevant."
+      ]
+    }
+  },
+  "cross_market_implications": [
+    "Practical guidance still sells across markets.",
+    "Prestige and curation remain commercial accelerants.",
+    "Media ecosystems increasingly drive book discovery.",
+    "The strongest future English-language concept should combine utility, thought, and human narrative."
+  ],
+  "recommended_book_angles": [
+    "AI without cognitive laziness",
+    "AI for high-agency work and creative life design",
+    "AI, authorship, judgment, and cultural status"
+  ]
+}

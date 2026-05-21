@@ -1,0 +1,41 @@
+name: AI Impl Kit CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .[dev]
+
+    - name: Type check with mypy
+      run: mypy src/ai_impl_kit
+
+    - name: Lint with ruff
+      run: ruff check .
+
+    - name: Run unit tests
+      run: pytest tests/
+
+    - name: Run Evaluation Pipline (Mock)
+      run: |
+        python scripts/run_eval.py structured_extraction fixtures/cases/structured_extraction/basic.json --provider mock
+        python scripts/run_eval.py classification fixtures/cases/classification/basic.json --provider mock
+        python scripts/run_eval.py summarization fixtures/cases/summarization/empty.json --provider mock
+        python scripts/run_eval.py drafting fixtures/cases/drafting/basic.json --provider mock

@@ -1,0 +1,23 @@
+# Audit: AI Impl Kit Day 3 - OpenAI Adapter
+
+- Date: 2026-05-14
+- Agent: Antigravity
+- Mode: execute
+- Task ID: day-3-openai-adapter
+- Why: To provide a live implementation of the `AIAdapter` protocol using OpenAI's API, enabling actual LLM execution while adhering to the previously established strict contract and fail-fast rules.
+- Scope: `src/ai_impl_kit/adapters/openai_adapter.py`, `src/ai_impl_kit/adapters/factory.py`, and related tests.
+- Files changed:
+  - `src/ai_impl_kit/adapters/openai_adapter.py` (created)
+  - `src/ai_impl_kit/adapters/factory.py` (created)
+  - `tests/test_openai_adapter.py` (created)
+- Evidence / Sources: `pytest tests/test_openai_adapter.py` (100% pass)
+- Commands run:
+  - `uv run pytest tests/`
+- Results:
+  - OpenAIAdapter successfully maps `ExecuteOptions` (`temperature`, `max_tokens`, `json_mode`) strictly to the OpenAI SDK parameters (implementing ADR 0002).
+  - Explicit error raising confirms adherence to ADR 0003 (Fail-Fast Strategy).
+  - Adapter Factory handles switching between "mock" and "openai".
+- Risks: 
+  - External API calls in live environments depend on OpenAI's uptime.
+- Rollback: `git checkout HEAD~1`
+- Remaining TODO: Day 4 & Day 5 tasks (Evaluation Runner and Fixture implementation).

@@ -1,0 +1,108 @@
+﻿:root {
+  color-scheme: light;
+  --bg: #081121;
+  --panel: #ffffff;
+  --ink: #0f172a;
+  --muted: #475569;
+  --accent: #0f766e;
+  --border: #d7e0ea;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #eff6ff, #f8fafc);
+  color: var(--ink);
+}
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+.hero {
+  background: var(--bg);
+  color: white;
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.eyebrow { text-transform: uppercase; letter-spacing: 0.08em; color: #5eead4; }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+}
+.form-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+input, textarea, select, button {
+  font: inherit;
+}
+input, textarea, select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+textarea { min-height: 92px; }
+button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:last-child { background: #334155; }
+.actions { display: flex; gap: 10px; }
+.full-width { grid-column: 1 / -1; }
+.muted { color: var(--muted); }
+.result-block { margin-bottom: 22px; }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.timeline-card, .metric-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #f8fafc;
+  display: grid;
+  gap: 6px;
+}
+.two-column {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: center;
+}
+pre, textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+}
+@media (max-width: 900px) {
+  .two-column { grid-template-columns: 1fr; }
+}

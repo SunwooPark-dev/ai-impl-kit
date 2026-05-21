@@ -1,0 +1,4 @@
+{
+  "text": "The patient, John Doe, was prescribed 50mg of Amoxicillin to be taken twice daily.",
+  "schema_description": "Extract patient_name, medication, dose, and frequency."
+}

@@ -1,0 +1,28 @@
+# Audit: AI Impl Kit Day 5 - Eval Runner and Validation Fixtures
+
+- Date: 2026-05-14
+- Agent: Antigravity
+- Mode: execute
+- Task ID: day-5-eval-runner
+- Why: To establish a robust, continuous regression testing mechanism (`EvalRunner`) that evaluates inputs against the `Output Contract` and compares results against deterministic `Golden Outputs`. This ensures the reliability of the `ai-impl-kit` as AI models evolve.
+- Scope: `src/ai_impl_kit/evals/runner.py`, CLI tools `scripts/run_eval.py` & `scripts/sync_golden.py`, and test fixtures.
+- Files changed:
+  - `src/ai_impl_kit/evals/runner.py` (created)
+  - `tests/test_eval_runner.py` (created)
+  - `scripts/run_eval.py` (created)
+  - `scripts/sync_golden.py` (created)
+  - `src/ai_impl_kit/adapters/mock_adapter.py` (modified default response)
+  - `fixtures/cases/implementation_plan/basic.json` (created)
+  - `fixtures/golden/implementation_plan/basic.md` (created via sync script)
+- Evidence / Sources: `pytest tests/test_eval_runner.py` passed. Execution of `run_eval.py` first failed (missing golden) and passed successfully after executing `sync_golden.py`.
+- Commands run:
+  - `uv run pytest tests/`
+  - `uv run python scripts/run_eval.py --provider mock`
+  - `uv run python scripts/sync_golden.py --prompt implementation_plan --case basic`
+- Results:
+  - Implemented the `EvalRunner` which correctly enforces both Contract Validation (Fail-Fast) and Golden Diffing.
+  - Demonstrated ADR 0004 (Manual Golden Sync Protocol) in action via `sync_golden.py`.
+- Risks: 
+  - Diff comparisons are strict line-by-line matches. Frequent trivial changes in LLM formatting may increase manual review fatigue.
+- Rollback: `git checkout HEAD~1`
+- Remaining TODO: Documentation polish (Day 6) and CI hook integration (Day 7).

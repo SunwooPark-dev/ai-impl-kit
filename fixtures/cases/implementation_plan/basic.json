@@ -1,0 +1,5 @@
+{
+    "task_description": "Build an authentication module",
+    "context": "Using FastAPI and JWT",
+    "constraints": "Must not use third-party auth providers like Auth0"
+}

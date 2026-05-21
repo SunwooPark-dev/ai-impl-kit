@@ -1,0 +1,4 @@
+{
+    "schema": "{\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}, \"company\": {\"type\": \"string\"}}, \"required\": [\"name\", \"age\", \"company\"]}",
+    "text": "My name is John Doe, I am 34 years old, and I work at Acme Corp."
+}
