@@ -15,6 +15,7 @@ from ai_impl_kit.runtime.pipeline import Pipeline  # type: ignore
 from ai_impl_kit.adapters.mock_adapter import MockAdapter  # type: ignore
 from ai_impl_kit.adapters.openai_adapter import OpenAIAdapter  # type: ignore
 from ai_impl_kit.adapters.anthropic_adapter import AnthropicAdapter  # type: ignore
+from ai_impl_kit.adapters.gemini_adapter import GeminiAdapter  # type: ignore
 
 
 def load_json(path: Path) -> dict:
@@ -76,6 +77,12 @@ async def run_prompt_eval(prompt_id: str, case_path: Path, provider: str = "mock
         except ValueError as e:
             print(f"ERROR: Cannot initialize AnthropicAdapter: {e}")
             return 1
+    elif provider == "gemini":
+        try:
+            adapter = GeminiAdapter()
+        except ValueError as e:
+            print(f"ERROR: Cannot initialize GeminiAdapter: {e}")
+            return 1
     else:
         # Mock adapter must return deterministic output for this run.
         adapter = MockAdapter(response_text=expected)
@@ -113,7 +120,7 @@ def main() -> int:
         default="fixtures/cases/structured_extraction/basic.json",
         help="Case file path relative to repository root or absolute path"
     )
-    parser.add_argument("--provider", choices=["mock", "openai", "anthropic"], default="mock", help="Adapter provider to use (default: mock)")
+    parser.add_argument("--provider", choices=["mock", "openai", "anthropic", "gemini"], default="mock", help="Adapter provider to use (default: mock)")
     args = parser.parse_args()
 
     return asyncio.run(run_prompt_eval(args.prompt_id, Path(args.case_file), args.provider))

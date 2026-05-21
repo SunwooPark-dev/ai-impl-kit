@@ -37,3 +37,4 @@ outputs/reports/
 .idea/
 *.swp
 *.swo
+.vercel

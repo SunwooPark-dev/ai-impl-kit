@@ -104,7 +104,8 @@ class Choreography:
             "latency_sec": result.latency_sec,
             "cost_usd": result.cost_usd,
             "duration_ms": result.duration_ms,
-            "usage": result.usage
+            "usage": result.usage,
+            "tool_calls": result.tool_calls
         }
         with open(self.ledger_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(ledger_entry, ensure_ascii=False) + "\n")

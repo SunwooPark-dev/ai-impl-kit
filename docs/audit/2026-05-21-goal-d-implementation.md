@@ -1,0 +1,41 @@
+# Audit: Implement Goal D - Dynamic Tool-Use & Sandbox Execution
+
+- Date: 2026-05-21
+- Agent: Antigravity
+- Mode: execute | verify
+- Task ID: af03d13c-f6a3-4663-b61d-0f509751e010
+- Why: ai-impl-kit 내에 안전한 도구 실행 샌드박스(Python/Docker)를 도입하고, LLM 어댑터(OpenAI, Anthropic) 단에서 동적 도구 루프를 구현하며, 실행 결과를 파이프라인 및 코레오그래피 레이어와 통합하여 원장(ledger)에 로깅하도록 하기 위함.
+- Scope:
+  - `src/ai_impl_kit/runtime/sandbox.py` (신규 샌드박스 및 실행 헬퍼 구현)
+  - `src/ai_impl_kit/adapters/base.py` (도구 옵션 및 응답 구조 정의 업데이트)
+  - `src/ai_impl_kit/adapters/openai_adapter.py` (OpenAI 동적 도구 루프)
+  - `src/ai_impl_kit/adapters/anthropic_adapter.py` (Anthropic 동적 도구 루프)
+  - `src/ai_impl_kit/runtime/pipeline.py` (Pipeline 도구 실행 결과 전파)
+  - `src/ai_impl_kit/runtime/choreography.py` (Ledger에 도구 실행 결과 기록)
+  - `tests/test_sandbox.py` (샌드박스 테스트 케이스 구현)
+  - `tests/test_tool_use.py` (도구 루프 및 로깅 테스트 케이스 구현 및 수정)
+- Files changed:
+  - `src/ai_impl_kit/runtime/sandbox.py`
+  - `src/ai_impl_kit/adapters/base.py`
+  - `src/ai_impl_kit/adapters/openai_adapter.py`
+  - `src/ai_impl_kit/adapters/anthropic_adapter.py`
+  - `src/ai_impl_kit/runtime/pipeline.py`
+  - `src/ai_impl_kit/runtime/choreography.py`
+  - `tests/test_tool_use.py`
+- Evidence / Sources:
+  - `python -m pytest` 전체 49개 테스트 패스 (특히 sandbox 및 tool_use 관련 테스트 성공)
+  - 동적 도구 루프 내부에서 sequential한 API 호출 구성 및 execute_tool 동기 헬퍼 정상 동작 확인
+- Commands run:
+  - `rtk python -m pytest` (Exit code: 0, 49 passed)
+- Results:
+  - RestrictedPythonSandbox 및 PythonSandbox를 구현하여 외부 파이썬 코드의 격리된 안전한 실행 가능.
+  - execute_tool 동기 헬퍼를 추가하여 이미 이벤트 루프가 돌고 있는 환경에서 ThreadPoolExecutor를 사용해 비동기 execute를 데드락 없이 실행 가능하도록 문제 해결.
+  - OpenAIAdapter, AnthropicAdapter에서 AI 모델이 툴 호출을 내렸을 때 자동으로 로컬 Sandbox를 통해 툴을 실행하고 그 결과를 다시 모델로 넘겨 최종 답변을 얻는 동적 루프 완료.
+
+  - 파이프라인 및 코레오그래피 원장 기록(choreography_ledger.jsonl)에 툴 실행 이벤트가 제대로 남도록 통합 완료.
+- Risks:
+  - DockerSandbox의 경우 로컬 Docker Daemon이 실행 중이어야 실제로 동작하므로, 도커가 없는 환경에서는 제한된 python sandbox를 기본 폴백으로 사용하도록 유의해야 함.
+- Rollback:
+  - `git checkout HEAD -- <files>`
+- Remaining TODO:
+  - 향후 실제 도커 환경에서의 E2E 검증 및 도구 사용 시 민감 정보 차단 필터(Secret Scan) 로직 연동 검토.

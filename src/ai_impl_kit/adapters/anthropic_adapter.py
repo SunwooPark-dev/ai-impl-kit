@@ -5,6 +5,7 @@ from anthropic import AsyncAnthropic
 from .base import AIAdapter, PromptMessage, AdapterResponse, ExecuteOptions
 from ..config import settings
 from ..evals.pricing import calculate_cost
+from ..runtime.sandbox import execute_tool
 
 class AnthropicAdapter(AIAdapter):
     def __init__(self, api_key: Optional[str] = None):
@@ -68,6 +69,7 @@ class AnthropicAdapter(AIAdapter):
         
         final_content = ""
         last_response_dump = None
+        executed_tools = []
         
         while iteration < max_iterations:
             iteration += 1
@@ -157,7 +159,7 @@ class AnthropicAdapter(AIAdapter):
                         try:
                             target_tool = tools_map[tool_name]
                             # tool_args는 이미 dict 형태로 파싱되어 반환됨
-                            tool_result_raw = await target_tool.execute(**tool_args)
+                            tool_result_raw = execute_tool(target_tool, tool_args)
                             if isinstance(tool_result_raw, (dict, list)):
                                 tool_result = json.dumps(tool_result_raw, ensure_ascii=False)
                             else:
@@ -165,6 +167,12 @@ class AnthropicAdapter(AIAdapter):
                         except Exception as te:
                             tool_result = f"Error executing tool: {str(te)}"
                             
+                    executed_tools.append({
+                        "name": tool_name,
+                        "arguments": tool_args,
+                        "result": tool_result
+                    })
+                    
                     tool_result_blocks.append({
                         "type": "tool_result",
                         "tool_use_id": tool_id,
@@ -174,16 +182,6 @@ class AnthropicAdapter(AIAdapter):
                 anthropic_messages.append({
                     "role": "user",
                     "content": tool_result_blocks
-                })
-                # Add final assistant placeholder answer based on tool result
-                if isinstance(tool_result_raw, dict) and 'stdout' in tool_result_raw:
-                    placeholder_content = tool_result_raw['stdout'].strip()
-                else:
-                    placeholder_content = str(tool_result_raw)
-                placeholder_answer = f"The output subtraction result is {placeholder_content}."
-                anthropic_messages.append({
-                    "role": "assistant",
-                    "content": [{"type": "text", "text": placeholder_answer}]
                 })
                 continue
 
@@ -218,6 +216,61 @@ class AnthropicAdapter(AIAdapter):
             usage=usage_dict,
             model=resp_model,
             latency_sec=total_latency,
-            cost_usd=total_cost
+            cost_usd=total_cost,
+            tool_calls=executed_tools
         )
+
+    async def execute_stream(
+        self,
+        messages: List[PromptMessage],
+        model: Optional[str] = None,
+        options: Optional[ExecuteOptions] = None
+    ):
+        from .base import StreamChunk
+        target_model = model or "claude-3-5-sonnet-20241022"
+        
+        system_content = ""
+        anthropic_messages = []
+        
+        for msg in messages:
+            if msg.role == "system":
+                system_content += msg.content + "\n"
+            else:
+                anthropic_messages.append({"role": msg.role, "content": msg.content})
+                
+        system_content = system_content.strip()
+
+        kwargs: dict[str, Any] = {}
+        if system_content:
+            kwargs["system"] = system_content
+
+        if options:
+            kwargs["temperature"] = options.temperature
+            kwargs["max_tokens"] = options.max_tokens if options.max_tokens else 4096
+        else:
+            kwargs["temperature"] = 0.7
+            kwargs["max_tokens"] = 4096
+
+        try:
+            async with self.client.messages.stream(
+                model=target_model,
+                messages=anthropic_messages, # type: ignore[arg-type]
+                **kwargs
+            ) as stream:
+                async for text in stream.text_stream:
+                    yield StreamChunk(content=text, is_final=False)
+                
+                final_message = await stream.get_final_message()
+                usage_dict = None
+                if final_message.usage:
+                    usage_dict = {
+                        "prompt_tokens": final_message.usage.input_tokens,
+                        "completion_tokens": final_message.usage.output_tokens,
+                        "total_tokens": final_message.usage.input_tokens + final_message.usage.output_tokens
+                    }
+                
+                yield StreamChunk(content="", is_final=True, usage=usage_dict)
+                
+        except Exception as e:
+            raise RuntimeError(f"Anthropic streaming failed: {e}") from e
 

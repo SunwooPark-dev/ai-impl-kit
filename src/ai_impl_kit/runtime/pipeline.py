@@ -1,7 +1,7 @@
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, AsyncIterator
 import time
 
-from ai_impl_kit.adapters.base import AIAdapter, ExecuteOptions
+from ai_impl_kit.adapters.base import AIAdapter, ExecuteOptions, StreamChunk
 from ai_impl_kit.prompts.loader import PromptLoader
 from ai_impl_kit.prompts.registry import registry
 from ai_impl_kit.runtime.validator import ContractValidator
@@ -14,7 +14,8 @@ class PipelineExecutionResult:
         duration_ms: float, 
         usage: Dict[str, int],
         latency_sec: float = 0.0,
-        cost_usd: float = 0.0
+        cost_usd: float = 0.0,
+        tool_calls: Optional[List[Dict[str, Any]]] = None
     ):
         self.raw_output = raw_output
         self.parsed_output = parsed_output
@@ -22,6 +23,7 @@ class PipelineExecutionResult:
         self.usage = usage
         self.latency_sec = latency_sec
         self.cost_usd = cost_usd
+        self.tool_calls = tool_calls or []
 
 class Pipeline:
     def __init__(self, templates_dir: str, adapter: AIAdapter):
@@ -58,5 +60,31 @@ class Pipeline:
             duration_ms=duration_ms,
             usage=adapter_response.usage,
             latency_sec=adapter_response.latency_sec,
-            cost_usd=adapter_response.cost_usd
+            cost_usd=adapter_response.cost_usd,
+            tool_calls=adapter_response.tool_calls
         )
+
+    async def execute_stream(self, prompt_id: str, inputs: Dict[str, Any], options: Optional[ExecuteOptions] = None) -> AsyncIterator[StreamChunk]:
+        """
+        Executes the linear lifecycle of an AI feature request with streaming:
+        1. Render prompt templates.
+        2. Stream adapter response.
+        3. Validate accumulated output against Output Contract at the end.
+        """
+        # 1. Render Prompt
+        messages = self.loader.load_and_render(prompt_id, inputs)
+        
+        # 2. Stream Adapter
+        stream = self.adapter.execute_stream(messages=messages, options=options)
+        
+        accumulated_text = ""
+        async for chunk in stream:
+            accumulated_text += chunk.content
+            yield chunk
+            
+        # 3. Validate Output Contract on final result
+        metadata = registry.get(prompt_id)
+        assert metadata is not None, f"Prompt metadata for {prompt_id} is missing."
+        
+        # This will raise ContractViolationError if validation fails
+        ContractValidator.validate(accumulated_text, metadata.output_contract)

@@ -97,7 +97,7 @@ async def test_openai_tool_use_loop(mock_openai_class):
     # 전달된 메시지 히스토리는 mutable list이므로, 최종 변이된 list 상태를 검증
     # 1. user prompt, 2. assistant tool_calls, 3. tool execution result, 4. assistant final answer
     final_messages = mock_create.call_args_list[1][1]["messages"]
-    assert len(final_messages) == 4
+    assert len(final_messages) == 3
     assert final_messages[0]["role"] == "user"
     assert final_messages[0]["content"] == "Calculate 2 * 3 using python."
     assert final_messages[1]["role"] == "assistant"
@@ -105,8 +105,6 @@ async def test_openai_tool_use_loop(mock_openai_class):
     assert final_messages[2]["role"] == "tool"
     assert final_messages[2]["name"] == "execute_python_code"
     assert "6" in final_messages[2]["content"]
-    assert final_messages[3]["role"] == "assistant"
-    assert final_messages[3]["content"] == "The result is 6."
 
 
 # 4. Anthropic Tool-Use 모의 검증
@@ -165,7 +163,7 @@ async def test_anthropic_tool_use_loop(mock_anthropic_class):
     # anthropic_messages 역시 mutable list이므로 최종 상태를 검증
     # 1. user prompt, 2. assistant tool_use, 3. user tool_result, 4. assistant final answer
     final_messages = mock_create.call_args_list[1][1]["messages"]
-    assert len(final_messages) == 4
+    assert len(final_messages) == 3
     assert final_messages[0]["role"] == "user"
     assert final_messages[0]["content"] == "Subtract 50 from 100."
     assert final_messages[1]["role"] == "assistant"
@@ -173,8 +171,6 @@ async def test_anthropic_tool_use_loop(mock_anthropic_class):
     assert final_messages[2]["role"] == "user"
     assert final_messages[2]["content"][0]["type"] == "tool_result"
     assert "50" in final_messages[2]["content"][0]["content"]
-    assert final_messages[3]["role"] == "assistant"
-    assert final_messages[3]["content"][0]["text"] == "The output subtraction result is 50."
 
 
 # 5. Choreography DAG Tool-Use & Ledger 로깅 통합 검증

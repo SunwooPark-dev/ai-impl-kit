@@ -1,0 +1,42 @@
+# Audit: Gemini Adapter, Streaming & Eval Dashboard Implementation
+
+- Date: 2026-05-21
+- Agent: Antigravity (Gemini CLI)
+- Mode: execute
+- Task ID: EXPANSION_001
+- Why: To support Google Gemini model, stream tokens dynamically, and provide a premium visualization dashboard of evaluation runs.
+- Scope:
+  - Configuration, factory mapping, adapter integration (Gemini, Streaming).
+  - Web UI / Static dashboard compiler.
+  - Testing suite extensions.
+- Files changed:
+  - `src/ai_impl_kit/config.py` (Modified)
+  - `src/ai_impl_kit/adapters/factory.py` (Modified)
+  - `src/ai_impl_kit/adapters/base.py` (Modified)
+  - `src/ai_impl_kit/adapters/mock_adapter.py` (Modified)
+  - `src/ai_impl_kit/adapters/openai_adapter.py` (Modified)
+  - `src/ai_impl_kit/adapters/anthropic_adapter.py` (Modified)
+  - `src/ai_impl_kit/adapters/gemini_adapter.py` (Created)
+  - `src/ai_impl_kit/runtime/pipeline.py` (Modified)
+  - `src/ai_impl_kit/evals/pricing.py` (Modified)
+  - `scripts/serve.py` (Modified)
+  - `scripts/eval_dashboard.py` (Created/Modified)
+  - `tests/test_gemini_adapter.py` (Created)
+  - `tests/test_streaming.py` (Created)
+- Evidence / Sources:
+  - Test suites completed successfully.
+  - Generated dashboard html located at `public/dashboard.html`.
+- Commands run:
+  - `rtk uv run pytest` (All 55 tests passed)
+  - `rtk uv run python scripts/eval_dashboard.py --provider mock` (Dashboard compiled successfully)
+- Results:
+  - 100% of test cases pass.
+  - Correct model-routing behavior for OpenAI, Anthropic, Gemini, and Mock adapters.
+  - Streaming contract validation checks deferred and processed correctly.
+- Risks:
+  - Gemini SDK 전역 configure (`genai.configure`) API 키 오버라이드 충돌 가능성.
+  - Stream chunk aggregation으로 인한 validation 지연.
+- Rollback:
+  - `git checkout -- .` and delete untracked adapter/test files.
+- Remaining TODO:
+  - Integrate with CI/CD action.

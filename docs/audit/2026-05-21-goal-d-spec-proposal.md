@@ -1,0 +1,27 @@
+# Audit: Propose Goal D (Dynamic Tool-Use & Sandbox Execution) Spec
+
+- Date: 2026-05-21
+- Agent: Antigravity
+- Mode: plan
+- Task ID: TASK_GOAL_D_SPEC
+- Why: Propose technical design and implementation steps for Goal D (Dynamic Tool-Use & Sandbox Execution) for the v3.0 upgrade of AI Impl Kit.
+- Scope: Design framework for executing dynamic tool calling loops inside OpenAI/Anthropic adapters and isolating execution environments using sandbox runtimes.
+- Files changed:
+  - `implementation_plan.md` (Artifact Created)
+- Evidence / Sources:
+  - `src/ai_impl_kit/runtime/choreography.py`
+  - `src/ai_impl_kit/runtime/pipeline.py`
+  - `src/ai_impl_kit/adapters/base.py`
+- Commands run:
+  - None (Plan phase)
+- Results:
+  - Created implementation plan outlining changes to adapters, introduction of `sandbox.py`, and integration tests.
+- Risks:
+  - Sandbox isolation bypass: Restricted Python sandbox can have escape vectors if not strictly sandboxed. Hybrid Docker approach proposed to mitigate.
+- Rollback:
+  - Revert the `implementation_plan.md` artifact.
+- Remaining TODO:
+  - Wait for user feedback and approval.
+  - Implement sandbox engine (`src/ai_impl_kit/runtime/sandbox.py`).
+  - Implement tool calling loops in adapters.
+  - Add validation tests and manual verification script.

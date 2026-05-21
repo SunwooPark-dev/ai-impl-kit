@@ -17,6 +17,8 @@ from ai_impl_kit.runtime.pipeline import Pipeline
 from ai_impl_kit.adapters.mock_adapter import MockAdapter
 from ai_impl_kit.adapters.openai_adapter import OpenAIAdapter
 from ai_impl_kit.adapters.anthropic_adapter import AnthropicAdapter
+from ai_impl_kit.adapters.gemini_adapter import GeminiAdapter
+from fastapi.responses import StreamingResponse
 
 app = FastAPI(title="AI Impl Kit API", description="Production-ready serving layer for Prompt Packs")
 
@@ -38,6 +40,8 @@ def get_adapter(provider: str):
         return OpenAIAdapter()
     elif provider == "anthropic":
         return AnthropicAdapter()
+    elif provider == "gemini":
+        return GeminiAdapter()
     elif provider == "mock":
         # Note: In real serving, mock needs pre-defined expected outputs. 
         # Here we just pass an empty JSON object for structural demonstration.
@@ -62,6 +66,21 @@ async def execute_prompt(request: ExecuteRequest):
             latency_sec=result.latency_sec,
             cost_usd=result.cost_usd
         )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/execute/stream")
+async def execute_prompt_stream(request: ExecuteRequest):
+    try:
+        adapter = get_adapter(request.provider)
+        templates_dir = ROOT / "src" / "ai_impl_kit" / "prompts" / "templates"
+        pipeline = Pipeline(str(templates_dir), adapter)
+        
+        async def event_generator():
+            async for chunk in pipeline.execute_stream(request.prompt_id, request.inputs):
+                yield chunk.model_dump_json() + "\n"
+                
+        return StreamingResponse(event_generator(), media_type="application/x-ndjson")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
