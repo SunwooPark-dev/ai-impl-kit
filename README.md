@@ -1,5 +1,7 @@
 # AI Impl Kit
 
+AI apps should be maintained with evals, fixtures, and adapters—not one-off prompts.
+
 Ship AI features faster with implementation-ready prompt packs, provider adapters, and validation fixtures.
 
 ![Status](https://img.shields.io/badge/status-MVP%20Ready-brightgreen)
@@ -12,10 +14,10 @@ Ship AI features faster with implementation-ready prompt packs, provider adapter
 4.  **Drafting / Rewrite:** Adjust tone and polish rough drafts.
 
 ## Quickstart
-\`\`\`bash
+```bash
 pip install -e .[dev]
 python scripts/run_eval.py structured_extraction fixtures/cases/structured_extraction/basic.json
-\`\`\`
+```
 
 ## Guides
 
